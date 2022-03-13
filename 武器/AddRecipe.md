@@ -1,6 +1,6 @@
-##添加合成表
+## 添加合成表
 
-#在类名之下设置
+# 在类名之下设置
 
     public override void AddRecipes() {
             ModRecipe recipe1 = new ModRecipe(mod);
@@ -17,9 +17,9 @@
             recipe1.AddRecipe();
         }
 
-##合成表组
+## 合成表组
 
-##只可用于类名mod
+## 只可用于类名mod
 
     public class Torch : Mod {
         public override void AddRecipeGroups()
