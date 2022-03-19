@@ -1,4 +1,5 @@
-# 1.新建一个物品Potion（和之前Gun等基本结构类似）
+# 1.新建一个物品Potion
+和之前Gun等基本结构类似
 ## 1.1Potion基础属性设置`set Default()`
 ```C#
 // 物品的使用方式，还记得2是什么吗
@@ -122,4 +123,4 @@ namespace TemplateMod2.Buffs
 }
 ```
 
-[回到顶部](# 1.新建一个物品Potion（和之前Gun等基本结构类似）)
+[回到顶部](#1.新建一个物品potion)
