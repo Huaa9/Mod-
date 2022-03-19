@@ -1,1 +1,1 @@
-
+`[AutoloadEquip(EquipType.Head)]`
