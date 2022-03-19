@@ -1,7 +1,7 @@
 # Potion and Buff
-## 1.新建一个物品Potion
+## 1. 新建一个物品Potion
 和之前Gun等基本结构类似
-## 1.1Potion基础属性设置`set Default()`
+## 1.1 Potion基础属性设置`set Default()`
 ```C#
 // 物品的使用方式，还记得2是什么吗
 item.useStyle = 2;
@@ -21,7 +21,7 @@ item.buffType = BuffID.Poisoned;
 // 用于在物品描述上显示buff持续时间
 item.buffTime = 60000;
 ```
-## 1.2药水想增加多种Buff，使用重写函数`UseItem`
+## 1.2 药水想增加多种Buff，使用重写函数`UseItem`
 ```C#
 // 当物品使用的时候触发，返回值貌似是什么都不会有影响
 public override bool UseItem(Player player) {
@@ -36,7 +36,7 @@ public override bool UseItem(Player player) {
 ```
 感觉此函数`player.AddBuff`融合了`item.buffType`和`item.buffTime`
 
-### 1.2.1解释上方`player.AddBuff`函数
+### 1.2.1 解释上方`player.AddBuff`函数
 ```c#
 public void AddBuff(int type, int time1, bool quiet = true);
 ```
@@ -44,11 +44,11 @@ public void AddBuff(int type, int time1, bool quiet = true);
 * buff的持续时间
 * quiet之后做笔记
 
-## 2.1BuffID
+## 2.1 BuffID
 [BuffID](https://terraria-zh.gamepedia.com/%E5%A2%9E%E7%9B%8A_ID "泰拉的BuffID") 
 
 给NPC加Buff也用此函数。
-## 2.2自创Buff
+## 2.2 自创Buff
 1. 新建一个叫Buffs的文件夹（命名空间叫namespace TemplateMod2.Buffs）
 2. 把贴图拖进文件夹。新建.cs文件，类名和贴图名一样
 3. ModBuff特有的三个重写函数`SetDefaults()`，`Update(Player player`,` ref int buffIndex)`，`Update(NPC npc, ref int buffIndex)`
