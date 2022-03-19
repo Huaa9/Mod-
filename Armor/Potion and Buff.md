@@ -1,5 +1,5 @@
 # Potion and Buff
-## 1.新建一个物品Potion
+## 1.新建一个物品potion
 和之前Gun等基本结构类似
 ## 1.1Potion基础属性设置`set Default()`
 ```C#
