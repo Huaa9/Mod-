@@ -124,4 +124,4 @@ namespace TemplateMod2.Buffs
 }
 ```
 
-[回到顶部](#Potion and Buff)
+[回到顶部](##1.新建一个物品Potion)
