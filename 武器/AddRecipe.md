@@ -86,12 +86,23 @@ namespace TemplateMod2 {
 ```C#
 public override void AddRecipes()
 {
-    ModRecipe Bstone3 = new ModRecipe(mod);
-    Bstone3.AddRecipeGroup("TemplateMod2:PlatformGroup121", 2); //使用合成组，名字，需要数量
-    Bstone3.AddTile(TileID.WorkBenches);
-    Bstone3.SetResult(this);
-    Bstone3.AddRecipe();
+        ModRecipe Bstone3 = new ModRecipe(mod);
+        Bstone3.AddRecipeGroup("TemplateMod2:PlatformGroup121", 2); //使用合成组，名字，需要数量
+        Bstone3.AddTile(TileID.WorkBenches);
+        Bstone3.SetResult(this);
+        Bstone3.AddRecipe();
 }
+```
+
+### 一些小**Tips**
+```C#
+        ModRecipe 合成表名字 = new ModRecipe(mod);
+        合成表名字.AddIngredient(ItemID.Blabla,数量);
+        合成表名字.AddTile(TileID.Blabla);    //添加合成环境
+        合成表名字.SetResult(this);           //生成个数
+        合成表名字.AddRecipe();               //加载这个合成表
+
+        RecipeGroup.RegisterGroup("MOD:类名", 合成配方名字) //来加载这个合成表组，这个东西第一个参数是名字，第二个参数是上面的合成组
 ```
 
 [回到顶部](#添加合成表)
