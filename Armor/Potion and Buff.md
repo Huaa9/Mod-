@@ -42,5 +42,6 @@ public void AddBuff(int type, int time1, bool quiet = true);
 * type是buff的id
 * buff的持续时间
 * quiet之后做笔记
+
 给NPC加Buff也用此函数。
 ## 1.2自创Buff
