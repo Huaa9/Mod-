@@ -1,6 +1,6 @@
-## 添加合成表
+# 添加合成表
 
-# 在类名之下设置
+## 在类名之下设置
 
     public override void AddRecipes() {
             ModRecipe recipe1 = new ModRecipe(mod);
@@ -20,19 +20,66 @@
 ## 合成表组
 
 ## 只可用于类名mod
+    using Terraria;
+    using Terraria.ID;
+    using Terraria.ModLoader;
 
-    public class Torch : Mod {
-        public override void AddRecipeGroups()
+    // 命名空间，注意它要与文件夹的名字相同
+    namespace TemplateMod2 {
+
+        // 主要Mod类
+        public class TemplateMod2 : Mod
         {
-            RecipeGroup group2 = new RecipeGroup(() => "任意" + "火把",
-                new int[]
-                {
-                ItemID.Torch,
-                ItemID.BlueTorch,
-                });
-            //这个东西第一个参数是名字，第二个参数是上面的合成组
-            Group2.RegisterGroup("MOD:Torch", group);
+
+            // 给一个实例指针，以后会非常有用的
+            private static TemplateMod2 instance;
+
+            // 构造函数
+            public TemplateMod2()
+            {
+                instance = this;
+            }
+
+            public static TemplateMod2 Instance
+            {
+                get;
+            }
+
+
+            public override void AddRecipeGroups()
+             {
+                 //() => Language.GetTextValue("LegacyMisc.37") + "火把",
+                 RecipeGroup PlatformGroup121 = new RecipeGroup(() => "一些平台",
+                     new int[]
+                     {
+                     ItemID.LivingWoodPlatform,
+                     ItemID.HoneyPlatform,
+                     ItemID.MushroomPlatform,
+                     });
+
+                 RecipeGroup.RegisterGroup("TemplateMod2:PlatformGroup121", PlatformGroup121);
+
+                 RecipeGroup Torchgroup = new RecipeGroup(() => "任意" + "火把",
+                     new int[]
+                     {
+                     ItemID.Torch,
+                     ItemID.BlueTorch,
+                      });
+                 //登记合成组至Terraria（合成组可不是合成配方，到时候使用还是需要recipe1.AddRecipe();）：这个东西第一个参数是名字，第二个参数是上面的合成组
+                 RecipeGroup.RegisterGroup("TemplateMod2:Torchgroup", Torchgroup);
+
+             }
+
         }
+
     }
-    //应用这个recipe2。参数一为名字，参数二为数量。
-     recipe.AddRecipeGroup("MOD:Torch", 10);
+    
+   直接在mod类下写addRecipeGroups方程，再把合成组的名字赋予类的名字。
+   使用合成组，
+   1.第二行直接用类下的名字。切记不要使用成Mod:PlatformGroup121，属于跨级要报错。
+   2. AddRecipeGroup其实就相当于一个打包的AddIngredient。意思就是说AddTile，SetResult，AddRecipe这些指令不要忘记写，不然会报错：超出索引边界。
+            ModRecipe Bstone3 = new ModRecipe(mod);
+            Bstone3.AddRecipeGroup("TemplateMod2:PlatformGroup121", 2); //使用合成组，名字，需要数量
+            Bstone3.AddTile(TileID.WorkBenches);
+            Bstone3.SetResult(this);
+            Bstone3.AddRecipe();
